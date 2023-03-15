@@ -1,0 +1,97 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.score {
+  width: 50%;
+}
+.container {
+  display: flex;
+  gap: 60px;
+}
+
+.title-button {
+  display: flex;
+  gap: 10px;
+}
+
+.add-score {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+}
+
+button {
+  padding: 8px;
+  background-color: white;
+  box-shadow: 2px 2px 2px black;
+}
+
+button#submit {
+  width: 30%;
+}
+
+h2 {
+  padding-bottom: 8px;
+  font-weight: 200;
+}
+
+table {
+  margin-top: 20px;
+  border: 3px solid black;
+}
+
+input {
+  width: 80%;
+  border: 3px solid black;
+  padding: 8px;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      display: block;
+    }
+
+    .score {
+      width: 100%;
+    }
+
+    .add-score {
+      width: 100%;
+    }
+
+    table {
+      margin-bottom: 20px;
+    }
+
+  }
