@@ -20,8 +20,8 @@ const send = () => {
   fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/vVyOiAWy0mcFhfinoWrB/scores/', {
     method: 'POST',
     body: JSON.stringify({
-      user: name.value,
-	    score: score.value
+    user: name.value,
+	  score: score.value,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -29,7 +29,24 @@ const send = () => {
   })
     .then((response) => response.json())
     .then((json) => console.log(json));
-}
+};
+
+const arrange = (contenu) => {
+  const table = document.createElement('table');
+  table.setAttribute('id', 'customers');
+  const tbody = document.createElement('tbody');
+  table.appendChild(tbody);
+  scoreClasse.appendChild(table);
+  const long = contenu.result.length;
+
+  for (let i = 0; i < long; i += 1) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.textContent = `${contenu.result[i].user} : ${contenu.result[i].score}`;
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  }
+};
 
 async function received() {
   const requestUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/vVyOiAWy0mcFhfinoWrB/scores/';
@@ -40,27 +57,6 @@ async function received() {
   arrange(scoreName);
 }
 
-
-
-
-const arrange = (contenu) => {
-  const table = document.createElement('table');
-  table.setAttribute('id', 'customers');
-  const tbody = document.createElement('tbody');
-  table.appendChild(tbody);
-  scoreClasse.appendChild(table);
-  const long = contenu.result.length;
-  
-  
-  for (let i = 0; i < long; i += 1) {
-    const tr = document.createElement('tr');
-    const td = document.createElement('td');
-    td.textContent = contenu.result[i].user+" : "+contenu.result[i].score;
-    tr.appendChild(td);
-    tbody.appendChild(tr);
-  } 
-  
-}
 btnSubmit.addEventListener('click', () => {
   if (name.value !== '' && score.value !== '') {
     send();
@@ -70,7 +66,7 @@ btnSubmit.addEventListener('click', () => {
 });
 refresh.addEventListener('click', () => {
   const tables = document.querySelectorAll('table');
-  for ( let i = 0; i < tables.length; i += 1) {
+  for (let i = 0; i < tables.length; i += 1) {
     tables[i].remove();
   }
   received();
