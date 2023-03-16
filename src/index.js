@@ -3,7 +3,7 @@ import './style.css';
 
 function use() {
   const a = _;
-  if(a === '1') {
+  if (a === '1') {
     return '';
   }
   return '';
