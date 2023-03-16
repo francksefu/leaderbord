@@ -20,8 +20,7 @@ const send = () => {
   fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/vVyOiAWy0mcFhfinoWrB/scores/', {
     method: 'POST',
     body: JSON.stringify({
-    user: name.value,
-	  score: score.value,
+      user: name.value, score: score.value,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
